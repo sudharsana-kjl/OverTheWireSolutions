@@ -1,0 +1,33 @@
+##ssh bandit0@bandit.labs.overthewire.org -p 2220
+P: bandit0
+
+cat readme
+
+##ssh bandit1@bandit.labs.overthewire.org -p 2220
+P: boJ9jbbUNNfktd78OOpsqOltutMc3MY1
+
+cat ./-
+
+##ssh bandit2@bandit.labs.overthewire.org -p 2220
+P: CV1DtqXWVFXTvM2F0k09SHz0YwRINYA9
+
+cat spaces\ in\ this\ filename
+
+##ssh bandit3@bandit.labs.overthewire.org -p 2220
+P: UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK
+
+cd inhere/
+ls -la
+cat .hidden
+
+##ssh bandit4@bandit.labs.overthewire.org -p 2220
+P: pIwrPrtPN36QITSp3EQaw936yaFoFgAB
+
+file ./*
+cat ./-file07
+
+##ssh bandit5@bandit.labs.overthewire.org -p 2220
+P: koReBOKuIDDepwhWk7jZC0RTdopnAYKh
+
+ 
+
