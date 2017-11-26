@@ -29,5 +29,10 @@ cat ./-file07
 ##ssh bandit5@bandit.labs.overthewire.org -p 2220
 P: koReBOKuIDDepwhWk7jZC0RTdopnAYKh
 
- 
+cd inhere/
+find -readable -size 1033c ! -executable
+cat ./maybehere07/.file2
+
+##ssh bandit6@bandit.labs.overthewire.org -p 2220
+P: DXjZPULLxYr17uwoI01bNLQbtFemEgo7 
 
