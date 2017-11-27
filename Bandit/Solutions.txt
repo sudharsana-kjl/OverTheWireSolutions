@@ -36,3 +36,31 @@ cat ./maybehere07/.file2
 ##ssh bandit6@bandit.labs.overthewire.org -p 2220
 P: DXjZPULLxYr17uwoI01bNLQbtFemEgo7 
 
+cd ..
+find / -user bandit7 -group bandit6 -size 33c 2>/dev/null
+cat /var/lib/dpkg/info/bandit7.password
+
+##ssh bandit7@bandit.labs.overthewire.org -p 2220
+P: HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs
+
+awk '($1 == "millionth")' data.txt
+
+##ssh bandit8@bandit.labs.overthewire.org -p 2220
+P: cvX2JJa4CFALtqS87jk27qwqGhBM9plV
+
+sort data.txt | uniq -u
+((we use sort here because uniq command compares only adjacent files))
+
+##ssh bandit9@bandit.labs.overthewire.org -p 2220
+P: UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR
+
+strings data.txt | grep "=="
+
+##ssh bandit10@bandit.labs.overthewire.org -p 2220
+P: truKLdjsbJ5g7yyJ2X2R0o3a5HQJFuLk
+
+cat data.txt | base64 --decode
+
+##ssh bandit11@bandit.labs.overthewire.org -p 2220
+P: IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR
+
