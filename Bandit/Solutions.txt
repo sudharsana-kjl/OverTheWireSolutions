@@ -64,3 +64,8 @@ cat data.txt | base64 --decode
 ##ssh bandit11@bandit.labs.overthewire.org -p 2220
 P: IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR
 
+cat data.txt | tr '[A-Za-z]' '[N-ZA-Mn-za-m]'
+
+##ssh bandit12@bandit.labs.overthewire.org -p 2220
+P: 5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu
+
