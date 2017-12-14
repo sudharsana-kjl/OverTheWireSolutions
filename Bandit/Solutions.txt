@@ -69,3 +69,59 @@ cat data.txt | tr '[A-Za-z]' '[N-ZA-Mn-za-m]'
 ##ssh bandit12@bandit.labs.overthewire.org -p 2220
 P: 5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu
 
+bandit12@bandit:~$ mkdir /tmp/skjl
+bandit12@bandit:~$ cp data.txt /tmp/skjl
+bandit12@bandit:/tmp/skjl$ file data.txt
+data.txt: ASCII text
+bandit12@bandit:/tmp/skjl$ xxd -r data.txt > file1   // to reverse hexdump
+bandit12@bandit:/tmp/skjl$ file file1
+file1: gzip compressed data, was "data2.bin", last modified: Mon Nov 13 14:58:07 2017, max compression, from Unix
+bandit12@bandit:/tmp/skjl$ mv file1 file1.gz
+bandit12@bandit:/tmp/skjl$ gunzip file1.gz
+bandit12@bandit:/tmp/skjl$ file file1
+file1: bzip2 compressed data, block size = 900k
+bandit12@bandit:/tmp/skjl$ mv file1 file1.bz2
+bandit12@bandit:/tmp/skjl$ bzip2 -d file1.bz2
+bandit12@bandit:/tmp/skjl$ file file1
+file1: gzip compressed data, was "data4.bin", last modified: Mon Nov 13 14:58:07 2017, max compression, from Unix
+bandit12@bandit:/tmp/skjl$ mv file1 file1.gz
+bandit12@bandit:/tmp/skjl$ gunzip file1.gz
+bandit12@bandit:/tmp/skjl$ file file1
+file1: POSIX tar archive (GNU)
+bandit12@bandit:/tmp/skjl$ tar -xvf file1
+data5.bin
+bandit12@bandit:/tmp/skjl$ file data5.bin
+data5.bin: POSIX tar archive (GNU)
+bandit12@bandit:/tmp/skjl$ tar -xvf data5.bin
+data6.bin
+bandit12@bandit:/tmp/skjl$ file data6.bin
+data6.bin: bzip2 compressed data, block size = 900k
+bandit12@bandit:/tmp/skjl$ mv data6.bin data6.bin.bz2
+bandit12@bandit:/tmp/skjl$ bzip2 -d data6.bin.bz2
+bandit12@bandit:/tmp/skjl$ ls
+data.txt  data5.bin  data6.bin  file1
+bandit12@bandit:/tmp/skjl$ file data6.bin
+data6.bin: POSIX tar archive (GNU)
+bandit12@bandit:/tmp/skjl$ tar -xvf data6.bin
+data8.bin
+bandit12@bandit:/tmp/skjl$ file data8.bin
+data8.bin: gzip compressed data, was "data9.bin", last modified: Mon Nov 13 14:58:07 2017, max compression, from Unix
+bandit12@bandit:/tmp/skjl$ mv data8.bin data8.bin.gz
+bandit12@bandit:/tmp/skjl$ gunzip data8.bin.gz
+bandit12@bandit:/tmp/skjl$ file data8.bin
+data8.bin: ASCII text
+bandit12@bandit:/tmp/skjl$ cat data8.bin
+The password is 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
+
+
+##ssh bandit13@bandit.labs.overthewire.org -p 2220
+P: 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
+
+stat -c %a sshkey.private // to see if permissions are above 600
+ssh -i sshkey.private bandit14@localhost
+cd /etc/bandit_pass/
+cat bandit14
+
+##ssh bandit13@bandit.labs.overthewire.org -p 2220
+P: 4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e
+
