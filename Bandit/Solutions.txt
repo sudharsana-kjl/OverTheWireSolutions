@@ -142,3 +142,53 @@ cluFn7wTiGryunymYOu4RcffSxQluehd
 ##ssh bandit16@bandit.labs.overthewire.org -p 2220
 P: cluFn7wTiGryunymYOu4RcffSxQluehd
 
+bandit16@bandit:~$ nmap -p 31000-32000 -sV  localhost
+
+Starting Nmap 7.01 ( https://nmap.org ) at 2017-12-21 19:14 CET
+Nmap scan report for localhost (127.0.0.1)
+Host is up (0.00011s latency).
+Other addresses for localhost (not scanned): ::1
+Not shown: 996 closed ports
+PORT      STATE SERVICE     VERSION
+31046/tcp open  echo
+31518/tcp open  ssl/echo
+31691/tcp open  echo
+31790/tcp open  ssl/unknown
+31960/tcp open  echo
+1 service unrecognized despite returning data.
+
+bandit16@bandit:~$ echo cluFn7wTiGryunymYOu4RcffSxQluehd | openssl s_client -quiet -connect localhost:31518
+depth=0 CN = bandit
+verify error:num=18:self signed certificate
+verify return:1
+depth=0 CN = bandit
+verify return:1
+cluFn7wTiGryunymYOu4RcffSxQluehd
+
+bandit16@bandit:~$ echo cluFn7wTiGryunymYOu4RcffSxQluehd |openssl s_client -quiet -connect localhost:31790
+depth=0 CN = bandit
+verify error:num=18:self signed certificate
+verify return:1
+depth=0 CN = bandit
+verify return:1
+Correct!
+-----BEGIN RSA PRIVATE KEY-----
+//////((---rsa key)) end---
+
+bandit16@bandit:~$ mkdir /tmp/b16key
+bandit16@bandit:~$ echo cluFn7wTiGryunymYOu4RcffSxQluehd |openssl s_client -quiet -connect localhost:31790 > /tmp/b16key
+-bash: /tmp/b16key: Is a directory
+bandit16@bandit:~$ echo cluFn7wTiGryunymYOu4RcffSxQluehd |openssl s_client -quiet -connect localhost:31790 > /tmp/b16key/sshkey
+depth=0 CN = bandit
+verify error:num=18:self signed certificate
+verify return:1
+depth=0 CN = bandit
+verify return:1
+bandit16@bandit:~$ chmod 600 /tmp/b16key/sshkey
+bandit16@bandit:~$ ssh -i /tmp/b16key/sshkey bandit17@localhost
+bandit17@bandit:~$ cat /etc/bandit_pass/bandit17
+xLYVMN9WE5zQ5vHacb0sZEVqbrp7nBTn
+
+##ssh bandit16@bandit.labs.overthewire.org -p 2220
+P: xLYVMN9WE5zQ5vHacb0sZEVqbrp7nBTn
+
