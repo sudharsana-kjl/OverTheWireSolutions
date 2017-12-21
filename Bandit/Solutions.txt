@@ -130,4 +130,15 @@ echo 4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e | nc localhost 30000
 ##ssh bandit15@bandit.labs.overthewire.org -p 2220
 P: BfMYroe26WYalil77FoDi9qh59eK5xNr
 
+bandit15@bandit:~$ echo BfMYroe26WYalil77FoDi9qh59eK5xNr | openssl s_client -quiet -connect localhost:30001
+depth=0 CN = bandit
+verify error:num=18:self signed certificate
+verify return:1
+depth=0 CN = bandit
+verify return:1
+Correct!
+cluFn7wTiGryunymYOu4RcffSxQluehd
+
+##ssh bandit16@bandit.labs.overthewire.org -p 2220
+P: cluFn7wTiGryunymYOu4RcffSxQluehd
 
