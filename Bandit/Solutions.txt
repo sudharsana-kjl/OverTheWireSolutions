@@ -189,6 +189,12 @@ bandit16@bandit:~$ ssh -i /tmp/b16key/sshkey bandit17@localhost
 bandit17@bandit:~$ cat /etc/bandit_pass/bandit17
 xLYVMN9WE5zQ5vHacb0sZEVqbrp7nBTn
 
-##ssh bandit16@bandit.labs.overthewire.org -p 2220
+##ssh bandit17@bandit.labs.overthewire.org -p 2220
 P: xLYVMN9WE5zQ5vHacb0sZEVqbrp7nBTn
+
+diff passwords.new passwords.old
+
+##ssh bandit18@bandit.labs.overthewire.org -p 2220
+P: kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd
+
 
