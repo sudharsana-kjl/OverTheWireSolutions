@@ -209,4 +209,17 @@ IueksS7Ubh8G3DCwVzrTd8rAVOwq3M5x
 ##ssh bandit19@bandit.labs.overthewire.org -p 2220
 P: IueksS7Ubh8G3DCwVzrTd8rAVOwq3M5x
 
+((looking at the home directory, we see a file bandit20-do is created by bandit20 and accessible by bandit19. The permission of the file is rws. The s permission means when the file is executed, it will run with the permission of the owner.
+
+Since the owner is bandit20, we can try to run this and use the elevated permission to look at the next password as well. Just running it tell us we can run a command.))
+
+ls -la
+./bandit20-do
+./bandit20-do cat /etc/bandit_pass/bandit20
+
+sh bandit19@bandit.labs.overthewire.org -p 2220
+P: GbKksEFF4yrVs6il55v6gwY5aVje5f0j
+
+
+
 
