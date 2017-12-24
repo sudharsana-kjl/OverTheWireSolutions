@@ -217,9 +217,25 @@ ls -la
 ./bandit20-do
 ./bandit20-do cat /etc/bandit_pass/bandit20
 
-sh bandit19@bandit.labs.overthewire.org -p 2220
+##ssh bandit20@bandit.labs.overthewire.org -p 2220
 P: GbKksEFF4yrVs6il55v6gwY5aVje5f0j
 
+((creating tmux sessions and splitting the console))
+tmux ((to open in tmux))
+ctrl-b :new ((to create a new session..ctrl-b will move the cursor to the ctrl command line))
+ctrl-b s (( to attach to the session ))
+ctrl-b % ((split the panels vertically))
 
+((in one panel, start an open port which serves the password of previous level))
+echo "GbKksEFF4yrVs6il55v6gwY5aVje5f0j" | nc -l -p 6000
 
+((in another panel, connect to the open port using setuid ))
+bandit20@bandit:~$ ./suconnect 6000
+Read: GbKksEFF4yrVs6il55v6gwY5aVje5f0j
+Password matches, sending next password
+
+((password will be seen in the panel in which port is opened))
+
+##ssh bandit21@bandit.labs.overthewire.org -p 2220
+P: gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr
 
