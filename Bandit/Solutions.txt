@@ -327,3 +327,23 @@ Exiting.
 ##ssh bandit25@bandit.labs.overthewire.org -p 2220
 P: uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG
 
+bandit25@bandit:~$ cat /etc/passwd | grep bandit26
+((to look at the bash used by bandit26))
+bandit25@bandit:/etc$ cat /usr/bin/showtext 
+#!/bin/sh
+
+export TERM=linux
+
+more ~/text.txt
+exit 0
+((we'll be logged out immediately as soon as the shell gets terminated. So we have to login before that))
+((first - minimize the terminal to less than 4 lines))
+bandit25@bandit:~$ ssh -i bandit26.sshkey bandit26@localhost
+((more message will prompt to continue the output))
+((now we press 'v' to enter vim))
+((now we try to open the password file from here itself as we are logged in now))
+((press ":e /etc/bandit_pass/bandit26" ))
+5czgV9L3Xx8JPOyRbXh6lQbmIOWvPT6Z
+((this is the password for next level which is yet to be released))
+
+
