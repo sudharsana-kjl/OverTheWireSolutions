@@ -1,0 +1,7 @@
+#!/bin/bash
+x=0
+while [ $x -le 10000 ]
+do
+    echo "UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ $x" | nc localhost 30002 >> res &
+done
+
